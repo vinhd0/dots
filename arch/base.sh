@@ -6,12 +6,9 @@ pkgs=(
   jq
   go-yq
   # busybox
+  tealdeer # tldr
 
-  htop
-  btop
-  gdu
-  gnome-disk-utility
-  powertop
+  # gnome-disk-utility
 
   fish # shell
 
@@ -23,6 +20,18 @@ pkgs=(
   fcitx5
   fcitx5-unikey
   fcitx5-configtool
+
+  # Network
+  iw
+  wireless-regdb
+
+  # Firmware
+  fwupd
+  fwupd-efi
+
+  # Snapshot
+  snapper
+  snap-pac
 )
 
 setup() {
@@ -30,9 +39,18 @@ setup() {
     fish
     fcitx5
   )
+
   for cfg in "${cfgs[@]}"; do
     cp -r "../config/${cfg}/" ~/.config/
   done
+
+  # Snapshot
+  sudo snapper -c root create-config /
+  sudo systemctl disable snapper-timeline.timer
+
+  # Time
+  # sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+  # sudo timedatectl set-local-rtc 0
 }
 
 env() {

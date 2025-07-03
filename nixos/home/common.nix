@@ -5,7 +5,7 @@
     htop
     btop
     neofetch
-    tldr
+    tealdeer # tldr client
 
     nix-tree
 
@@ -19,10 +19,7 @@
 
     # Disk
     gdu
-    gnome-disk-utility
-
-    # Auth
-    ente-auth
+    # gnome-disk-utility
 
     # Note
     obsidian

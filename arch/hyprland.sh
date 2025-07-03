@@ -27,7 +27,7 @@ pkgs=(
   waybar # gas eww
   dunst
   libnotify
-  rofi-wayland
+  rofi
 
   # LCD Brightness, player
   brightnessctl
@@ -71,14 +71,13 @@ setup() {
     waybar
   )
 
-  for cfg in "${cfgs[@]}"
-  do
+  for cfg in "${cfgs[@]}"; do
     cp -r "../.config/${cfg}" ~/.config/
   done
 }
 
-env(){
-  cat <<EOF >> ~/.bashrc
+env() {
+  cat <<EOF >>~/.bashrc
 
 # Hyprland
 # export NIXOS_OZONE_WL=1
